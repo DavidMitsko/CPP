@@ -7,10 +7,10 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		Worker employee = new Worker();
-		Ostrich camelBird = new Ostrich();
-		Elefant bishop = new Elefant();
-		CreateWindow window = new CreateWindow(primaryStage, employee, camelBird, bishop);
+		Animal animal = new Animal();
+		Worker employee = new Worker(animal);
+		CreateWindow window = new CreateWindow();
+		window.display(primaryStage, employee);
 	}
 
 	public static void main(String[] args) {

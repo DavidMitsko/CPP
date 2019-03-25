@@ -15,8 +15,7 @@ import javafx.stage.Stage;
 
 public class CreateWindow {
 
-	public CreateWindow(Stage primaryStage, Worker employee, Ostrich camelBird, Elefant bishop) {
-
+	public void display(Stage primaryStage, Worker employee) {
 		primaryStage.setResizable(false);
 		BorderPane root = new BorderPane();
 		Scene scene = new Scene(root, 400, 120);
@@ -53,13 +52,13 @@ public class CreateWindow {
 			public void handle(ActionEvent e) {
 				RadioButton selection = (RadioButton) groupFood.getSelectedToggle();
 				if (selection.getText().equals("Feed an ostrich")) {
-					employee.feed("Ostrich", thanksFood, camelBird, bishop);
+					employee.feed("Ostrich", thanksFood);
 				}
 				if (selection.getText().equals("Feed an elefant"))
-					employee.feed("Elefant", thanksFood, camelBird, bishop);
+					employee.feed("Elefant", thanksFood);
 			}
 		});
-		
+
 		RadioButton ostrichCage = new RadioButton("Clean the cage of an ostrich");
 		RadioButton elefantCage = new RadioButton("Clean the cage of an elephant");
 
@@ -79,12 +78,16 @@ public class CreateWindow {
 
 		clean.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
+				String result = new String();
 				RadioButton selection = (RadioButton) groupCage.getSelectedToggle();
 				if (selection.getText().equals("Clean the cage of an ostrich")) {
-					employee.tidy("Ostrich", thanksCage);
+					result = employee.tidy("Ostrich");
+					thanksCage.setText(result);
 				}
-				if (selection.getText().equals("Clean the cage of an elephant"))
-					employee.tidy("Elefant", thanksCage);
+				if (selection.getText().equals("Clean the cage of an elephant")) {
+					result = employee.tidy("Elefant");
+					thanksCage.setText(result);
+				}
 			}
 		});
 

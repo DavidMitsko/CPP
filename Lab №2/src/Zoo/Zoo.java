@@ -5,17 +5,9 @@ public class Zoo {
 	private Worker employee;
 	private Animal animal;
 
-	public Zoo() {
-		employee = new Worker();
-		animal = new Animal();
-	}
-
-	public Worker getEmployee() {
-		return this.employee;
-	}
-
-	public void setEmployee(Worker employee) {
-		this.employee = employee;
+	public Zoo(Worker someEmployee, Animal someAnimal) {
+		this.employee = someEmployee;
+		this.animal = someAnimal;
 	}
 
 }
