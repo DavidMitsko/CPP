@@ -39,9 +39,9 @@ public class ChoiñeRoles {
 				choice = langsComboBox.getValue();
 				try {
 					if("".equals(choice)) {
-						throw new NullPointerException();
+						throw new NotChoiceException(null);
 					}
-				} catch (NullPointerException notChoice) {
+				} catch (NotChoiceException notChoice) {
 					Alert alert = new Alert(Alert.AlertType.ERROR);
 
 					alert.setTitle("Error");
